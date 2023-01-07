@@ -7,6 +7,7 @@ def simple_separator() -> str:
 
     :return: **********
     """
+    return '*'*10
 
 
 
@@ -14,8 +15,9 @@ def long_separator(count: int) -> str:
     """Функция возвращает разделитель из звездочек число которых можно регулировать параметром count
 
     :param count: количество звездочек
-    :return: строка разделитель, примеры использования ниже
+    :return: строка разделитель
     """
+    return '*'*count
 
 
 
@@ -24,8 +26,9 @@ def separator(symbol: str, count: int) -> str:
 
     :param symbol: символ разделителя
     :param count: количество повторений
-    :return: строка разделитель примеры использования ниже
+    :return: строка разделитель
     """
+    return symbol*count
 
 
 
@@ -38,6 +41,10 @@ def hello_world() -> None:
 
     ##########
     """
+    print(simple_separator(),
+          'Hello World!',
+          separator('#', 10),
+          sep='\n\n')
 
 
 
@@ -52,6 +59,10 @@ def hello_who(who: str = 'World') -> None:
 
     :param who: кого мы приветствуем (World по умолчанию)
     """
+    print(simple_separator(),
+          f'Hello {who}!',
+          separator('#', 10),
+          sep='\n\n')
 
 
 
@@ -62,6 +73,7 @@ def pow_many(power: int, *numbers: int) -> int:
     :param numbers: произвольное количество чисел
     :return: результат вычисления
     """
+    return sum(numbers) ** power
 
 
 
@@ -70,6 +82,8 @@ def print_key_val(**kwargs) -> None:
 
     :param kwargs: любое количество именованных параметров
     """
+    for key, value in kwargs.items():
+        print(f'{key} --> {value}')
 
 
 
@@ -81,6 +95,7 @@ def my_filter(iterable: Sequence, function: Callable) -> list:
     :param function: функция фильтрации (предикат)
     :return: новая отфильтрованная последовательность
     """
+    return [elem for elem in iterable if function(elem)]
 
 
 
